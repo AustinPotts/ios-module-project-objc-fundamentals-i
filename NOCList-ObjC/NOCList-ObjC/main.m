@@ -31,6 +31,48 @@ int main(int argc, const char * argv[]) {
         NSArray *agents = @[ethan, jim, claire, eugene, franz, luther, sarah, max, hannah, jack, frank];
         
         
+        //Create a for loop to iterate over each agent and determine the total amount of compromised agents (can use a traditional for loop or a for-in fast enumeration).
+        int compAgents = 0;
+        for (LSIAgent *agent in agents) {
+            if ([agent compromised] == [NSNumber numberWithInt:1]) {
+                compAgents++;
+            }
+        }
+        
+        //Print a message revealing the total number of compromised agents.
+        NSLog(@"Number of agents compromised: %i", compAgents);
+        
+      
+        //Create a loop that finds high risk agents. It should print out the real names and access levels of agents with level 8 or higher. If that agent is also currently compromised, add WARNING COMPROMISED to the end of the string that includes their name and access level.
+
+        for (LSIAgent *agent in agents) {
+            if ([[agent accessLevel] isGreaterThanOrEqualTo: [NSNumber numberWithInt:8]]) {
+                if ([agent compromised] == [NSNumber numberWithInt:1]) {
+                    NSLog(@"%@, level: %@ **WARNING** **COMPROMISED**", [agent realName], [agent accessLevel]);
+                } else {
+                    NSLog(@"%@, level: %@", [agent realName], [agent accessLevel]);
+                }
+            }
+        }
+        
+        
+        //Create a loop that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. After the loop, print a statement like the following:
+        int lowLevelAgents = 0;
+        int midLevelAgents = 0;
+        int highLevelAgents = 0;
+        
+        
+        for (LSIAgent *agent in agents) {
+            if ([[agent accessLevel] isGreaterThanOrEqualTo: [NSNumber numberWithInt:8]]) {
+                highLevelAgents++;
+            } else if ([[agent accessLevel] isGreaterThanOrEqualTo:[NSNumber numberWithInt:5]] && [[agent accessLevel] isLessThanOrEqualTo: [NSNumber numberWithInt:7]]) {
+                midLevelAgents++;
+            } else {
+                lowLevelAgents++;
+            }
+        }
+        NSLog(@"%d low level agents, %d mid level agents, %d high level agents", lowLevelAgents, midLevelAgents, highLevelAgents);
+        
     }
     return 0;
 }
