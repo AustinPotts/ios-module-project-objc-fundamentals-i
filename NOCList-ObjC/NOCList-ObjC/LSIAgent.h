@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LSIAgent : NSObject
 
-
+//Step 1
 //Properties
 @property NSString *coverName;
 @property NSString *realName;

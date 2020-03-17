@@ -14,6 +14,7 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         
+        //Step 2
         //Use the custom init method in main.m to create agent objects for each record above.
         LSIAgent *ethan = [[LSIAgent alloc] initWithCoverName:@"Ethan Hunt" realName:@"Tom Cruise" accessLevel:(int)8 compromised:(BOOL)NO];
         LSIAgent *jim = [[LSIAgent alloc] initWithCoverName:@"Jim Phelps" realName:@"Jon Voight" accessLevel:(int)9 compromised:(BOOL)YES];
@@ -27,10 +28,12 @@ int main(int argc, const char * argv[]) {
         LSIAgent *jack = [[LSIAgent alloc] initWithCoverName:@"Jack Harmon" realName:@"Emilio Estevez" accessLevel:(int)6 compromised:(BOOL)YES];
         LSIAgent *frank = [[LSIAgent alloc] initWithCoverName:@"Frank Barnes" realName:@"Dale Dye" accessLevel:(int)9 compromised:(BOOL)NO];
         
+        //Step 2
         //Declare an NSArray for the objects
         NSArray *agents = @[ethan, jim, claire, eugene, franz, luther, sarah, max, hannah, jack, frank];
         
         
+        //Step 3
         //Create a for loop to iterate over each agent and determine the total amount of compromised agents (can use a traditional for loop or a for-in fast enumeration).
         int compAgents = 0;
         for (LSIAgent *agent in agents) {
@@ -43,6 +46,8 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Number of agents compromised: %i", compAgents);
         
       
+        
+        //Step 5
         //Create a loop that finds high risk agents. It should print out the real names and access levels of agents with level 8 or higher. If that agent is also currently compromised, add WARNING COMPROMISED to the end of the string that includes their name and access level.
 
         for (LSIAgent *agent in agents) {
@@ -56,6 +61,7 @@ int main(int argc, const char * argv[]) {
         }
         
         
+        //Step 6
         //Create a loop that finds totals for low, mid, and high level agents. Low level agents are 4 or lower, mid are 5-7, and high level agents are 8 or above. After the loop, print a statement like the following:
         int lowLevelAgents = 0;
         int midLevelAgents = 0;
